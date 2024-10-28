@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shiplee Franchise Opportunity</title>
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .hero {
+            background: #0046FF;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+        }
+
+        .cta-btn {
+            padding: 15px 30px;
+            background-color: #FF6F00;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #E65900;
+        }
+
+        .section {
+            padding: 40px 20px;
+        }
+
+        .why-choose .accordion-item {
+            margin: 10px 0;
+        }
+
+        .accordion-btn {
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+
+        .benefits-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .benefits-table th, .benefits-table td {
+            padding: 12px;
+            border: 1px solid #ccc;
+        }
+
+        .logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .logos img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .logos img:hover {
+            transform: scale(1.1);
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none;
+            background-color: #0046FF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #222;
+            color: #ddd;
+        }
+
+        .dark-mode .hero {
+            background: #333;
+        }
+
+        .dark-mode .cta-btn {
+            background-color: #888;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Join the Shiplee Franchise</h1>
+        <button class="cta-btn">Become a Partner</button>
+    </section>
+
+    <!-- Why Choose Shiplee Section -->
+    <section class="section why-choose">
+        <h2>Why Choose Shiplee?</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-btn">Benefit 1: Strong Brand Recognition</button>
+                <div class="accordion-content">
+                    <p>Leverage Shiplee's established brand and trusted reputation in the logistics industry.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn">Benefit 2: Comprehensive Support</button>
+                <div class="accordion-content">
+                    <p>Receive ongoing support, training, and marketing assistance to grow your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Franchise Benefits Table Section -->
+    <section class="section">
+        <h2>Franchise Benefits</h2>
+        <table class="benefits-table">
+            <tr>
+                <th>Benefit</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>Extensive Training</td>
+                <td>In-depth training programs for franchise partners.</td>
+            </tr>
+            <tr>
+                <td>Marketing Support</td>
+                <td>Comprehensive marketing and advertising support.</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- From Anywhere to Everywhere Section -->
+    <section class="section">
+        <h2>From Anywhere to Everywhere</h2>
+        <p>Shiplee’s extensive network ensures that your franchise can reach customers far and wide.</p>
+    </section>
+
+    <!-- Partner Logos Section -->
+    <section class="section">
+        <h2>Our Courier Partners</h2>
+        <div class="logos">
+            <img src="partner1.png" alt="Partner 1">
+            <img src="partner2.png" alt="Partner 2">
+            <img src="partner3.png" alt="Partner 3">
+        </div>
+    </section>
+
+    <!-- Scroll-to-Top Button -->
+    <button class="scroll-top" onclick="scrollToTop()">↑</button>
+
+    <!-- Dark Mode Toggle -->
+    <button class="toggle-dark-mode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <script>
+        // Accordion Functionality
+        const accordions = document.querySelectorAll('.accordion-btn');
+        accordions.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+                const content = btn.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        });
+
+        // Scroll-to-Top Button
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        window.onscroll = function () {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Lazy Loading for Partner Logos
+        document.querySelectorAll('img').forEach(img => {
+            img.setAttribute('loading', 'lazy');
+        });
+    </script>
+</body>
+</html>
